@@ -13,12 +13,12 @@ public class ActionBarAPI {
 	private static ActionBar actionBar;
     
     public static void initialize(TempFly tempfly) {
-        // Check if we're on 1.12 or above
-    	  if (Bukkit.getServer().getVersion().matches(".*1\\.(?!10|11)\\d{2,}.*")) {
-    	      actionBar = new ModernActionBar(tempfly);
+        String v = Bukkit.getServer().getBukkitVersion();
+        if (v.startsWith("1.8") || v.startsWith("1.9") || v.startsWith("1.10") || v.startsWith("1.11")) {
+            actionBar = new LegacyActionBar(tempfly);
         } else {
-    	      actionBar = new LegacyActionBar(tempfly);
-    	}
+            actionBar = new ModernActionBar(tempfly);
+        }
     }
     
     public static void sendActionBar(final Player player, final String message) {

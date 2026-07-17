@@ -13,11 +13,12 @@ public class TitleAPI {
 	private static Title title;
 	
     public static void initialize(TempFly tempfly) {
-    	  if (Bukkit.getServer().getVersion().matches(".*1\\.(?!10|11)\\d{2,}.*")) {
-    	      title = new ModernTitle();
+        String v = Bukkit.getServer().getBukkitVersion();
+        if (v.startsWith("1.8") || v.startsWith("1.9") || v.startsWith("1.10") || v.startsWith("1.11")) {
+            title = new LegacyTitle();
         } else {
-    	      title = new LegacyTitle();
-    	}
+            title = new ModernTitle();
+        }
     }
     
     public static void sendTitle(Player player, Integer fadeIn, Integer stay, Integer fadeOut, String title, String subtitle) {

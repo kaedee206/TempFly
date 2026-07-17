@@ -42,7 +42,7 @@ public class Particles {
 			Particle particle = null;
 			try {particle = Particle.valueOf(s.toUpperCase());} catch (Exception e1) {
 				try {particle = Particle.valueOf(V.particleType.toUpperCase());} catch (Exception e2) {
-					particle = Particle.VILLAGER_HAPPY;
+					particle = Particle.HAPPY_VILLAGER;
 				};
 			}
 			
@@ -57,7 +57,7 @@ public class Particles {
 					loc.getWorld().spawnParticle(particle, loc, 1, 0, 0, 0, 0.1);
 				}
 			} catch (Exception e) {
-				loc.getWorld().spawnParticle(Particle.VILLAGER_HAPPY, loc, 1, 0, 0, 0, 0.1);
+				loc.getWorld().spawnParticle(Particle.HAPPY_VILLAGER, loc, 1, 0, 0, 0, 0.1);
 			}
 		} else {
 			Effect particle = null;
